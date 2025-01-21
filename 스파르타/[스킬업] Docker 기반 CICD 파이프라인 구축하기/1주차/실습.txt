@@ -1,0 +1,23 @@
+1. AWS 계정 생성 및 EC2 생성
+
+2. VirtualBox 설치 // ISO 파일 다운
+## VirtualBox 다운 사이트 
+https://www.virtualbox.org/wiki/Downloads 
+## ubuntu ISO 다운 사이트
+https://ubuntu.com/download/desktop
+
+3. VirtualBox 가상머신 만들고 ISO 설치
+
+
+
+
+4. AWS ubuntu 서버에서
+nginx 설치
+sudo apt-get install nginx
+
+
+
+
+
+5. Flask로 api 만들기
+

@@ -1,0 +1,28 @@
+Why Docker?
+도커는 패키징하는 기술이다.
+
+Docker와 가상머신의 차이
+
+Docker의 장점
+- 가볍고 빠른 실행
+- 쉬운 배포 및 확장
+- 빠른 구성 및 배포를
+- 컨테이너 오케스트레이션
+- 개발자와 운영팀과의 협업 강화
+
+
+Docker 설치하기
+
+ubuntu에 설치
+# 주소
+https://docs.docker.com/engine/install/ubuntu/
+
+
+
+## 실행권한 도커 명령어 Permission denied 해결 방법
+$ sudo groupadd docker   // docker 그룹 생성  (기본적으로 docker 설치되면 만들어져있음)
+$ sudo usermod -aG docker [사용자이름]   // 
+$ newgrp docker  // 위 usermod 적용
+
+이후 권한 해결됨
+

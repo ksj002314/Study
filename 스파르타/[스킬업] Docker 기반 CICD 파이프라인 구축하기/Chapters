@@ -1,0 +1,6 @@
+## 챕터 ##
+1주차. GitLab 기반 CI/CD 소개 및 학습 환경 구축
+2주차. GitLab 설정, 첫번째 Docker Application 빌드
+3주차. GitLab으로 Python Flask 지속적인 빌드 환경 만들기
+4주차. GitLab으로 AWS Cloud로의 지속적인 배포 환경 만들기
+5주차. Review 그리고 Next Step
