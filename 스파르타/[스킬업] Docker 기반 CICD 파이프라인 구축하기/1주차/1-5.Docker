@@ -26,3 +26,38 @@ $ newgrp docker  // 위 usermod 적용
 
 이후 권한 해결됨
 
+
+
+
+## Docker Hub를 이용하여 이미지 다운받아서 설치하기
+
+DockerHub 홈페이지에서 검색
+
+실습으로 nginx를 설치해보기로 함
+
+nginx 검색 **만약 많은 이미지들중에 뭐 받아야할지 모르겠다면 뒤에 official  추가 입력 (공식 이미지 다운 가능)
+
+>> nginx official
+
+리눅스 서버에서
+
+### nginx 설치
+>> docker run --name some-nginx -p 8080:80 -d nginx  입력
+(설명 : docker 이미지 받을때는 별도로 포트포워딩 해줘야함 기본 80포트이고  나의 8080포트에다가 연결하겠다 의미)
+
+>>위 명령어로 설치하고나면
+
+### 현재 실행중인 이미지 확인하기
+>> docker ps 
+
+### Docker 명령어
+>> docker stop [CONTAINERID]       // 중지
+>> docker ps                       // 실행중인 Docker 컨테이너 목록
+>> docker ps -a
+>> docker run                      // 컨테이너 실행
+>> docker start                    // 중지된 컨테이너 실행
+>> docker rm                       // 컨테이너 삭제
+>> docker images                   // 다운받은 Docker image 목록 출력
+>> docker rmi                      // docker image 삭제
+>> docker build                    // docker image 빌드
+>> docker tag                      // docker image에 태깅

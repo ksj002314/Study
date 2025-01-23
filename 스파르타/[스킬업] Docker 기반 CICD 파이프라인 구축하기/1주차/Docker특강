@@ -1,0 +1,60 @@
+## Docker Compose
+
+핵심
+1.Docker Compose가 필요한이유???
+2.멀티컨테이너의 개념
+
+- 멀티 컨테이너 환경과 Docker Compose
+각각의 컨테이너들을 연결시켜주는것이 Docker Compose!!
+
+
+도커 컴포즈를 사용하면?
+1. 쉬운 컨테이너 가동
+2. 멀티 컨테이너 관리 용이
+3. 컨테이너 간의 종속성 관리 (가동 순서 보장)
+
+
+** 현업에서 요구하는 사항
+Docker Compose를 활용하는 정도
+
+
+
+
+
+### 특강 실습 강의
+>> docker-compose.yaml  파일 생성 여기에다가 작성함
+
+docker-compose.yaml 내용은
+
+version: "3"
+
+services:
+    reids:  ## 이 부분이 host이름이 되기도 한다.
+        image: "redis"
+        container_name: "redis"
+        ports:
+          - "6379:6379"
+    app:
+        build:
+            context: .
+        container_name: "python-app"
+        ports:
+           - "5000:5000"
+        depends_on:
+            - redis
+
+
+위처럼 작성하고 아래 명령어 입력하면 내용대로 진행된다.
+>> docker-compose up
+
+
+
+## 실무에서의 Docker Compose의 활용 사례
+
+도커 컴포즈를 사용하면???
+1.개발 환경 쉽게 구성
+2.통합 테스트 할때도 용이하다
+3.운영환경 연동
+
+*** DB빼고는 전부 컨테이너르 사용하는 편 **
+실무에서는 DB영속성으로 인하여 컨테이너르 돌리지 않는다 // 컨테이너는 언제나 대체 가능하기때문에

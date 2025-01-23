@@ -1,0 +1,13 @@
+## Review
+
+CI/CD : 자동화된 빌드 및 배포 파이프라인 구성
+GitLab : 오픈소스 CI/CD 소프트웨어
+Docker : 컨테이너 소프트웨어. 애플리케이션을 패키징
+AWS : GitLab를 이용 AWS Cloud에 애플리케이션 배포
+Linux : Cloud 시대의 대표 운영체제
+
+
+
+## 과제
+AWS 가입 후 EC2 인스턴스 실행
+EC2에 Docker 기반의 애플리케이션 실행
