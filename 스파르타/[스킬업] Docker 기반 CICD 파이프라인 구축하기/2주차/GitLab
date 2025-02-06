@@ -1,0 +1,50 @@
+## 학습 목표
+GitLab
+가장 널리 사용하는 CI / CD 툴 중 하나이다.
+Git 기반으로 소스코드를 관리하고 자동으로 Docker 애플리케이션을 빌드한다.
+빌드한 애플리케이션을 AWS의 Docker Image 저장소인 ECR에 Push하여 AWS에 배포하기 위한 준비
+
+GitLab 소개
+- 버전관리 및 소프트웨어 개발 라이프사이클을 지원.
+- 개발자, 팀, 기업은 GitLab을 통해서 협업 및 소프트웨어 관리
+
+
+
+GitLab Project에 SSH key 등록하기
+(AWS서버)에 ssh-keygen -t rsa 명령어로 ssh키 생성하고 GitLab project에 연결하기
+등록하면 해당 서버는 별다른 인증없이 gitlab을 이용 가능
+
+GitLab에 SSH키 등록하고나서
+AWS 서버로가서 git clone git@gitlab.sellochomes.co.kr:ksj002314/flask-app.git
+해주면 해닥 프로젝트 바로 연동이되고 폴더가 생긴다.
+
+
+git clone할때 Clon With SSH 주소를 이용하여 Clone한다.
+
+
+
+GitLab Group 생성하고  Project 만들기
+
+Dockerfile 파일 만들어서 내용 분석
+
+Dockerfile  파일 참고
+
+# dockerfile 실행 명령어
+$ docker build -t teamjoinc/test-app:0.1 .      # teamjoinc/test-app:0.1 .  이건 GitLab Group/project를 말하는거다.
+
+# 도커 이미지 확인
+docker images
+
+# docker run
+$ dokcer run --name test-app -p 5000:5000 teamjoinc/test-app:0.1
+
+
+#정리 build 명령어로 빌드하면  images에 나타난다.  images에 나타난걸 run 명령어로 실행해주면 된다.
+#이제 AWS ECR에 올려보기 (push)   AWS ECR을 사용해보자.
+#IAM 사용자 계정 생성
+
+
+## docker 명령어
+# 삭제
+$ docker rmi [IMAGEID] -f
+

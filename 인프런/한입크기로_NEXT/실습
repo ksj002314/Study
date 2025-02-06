@@ -1,0 +1,73 @@
+1. 실습을 위한 서버 세팅
+- supabase, prisma 사용
+- locahlsto:12345/api   스웨거 참고
+- npm i, npm run build, npm run start
+- npx prisma studio    // prisma 창 시작   host:localhost:5555
+
+
+
+## NEXT 14  PAGE ROUTER 실습
+# 프로젝트 생성
+$ npx create-next-app@14 section02
+
+프로젝트 폴더 구성
+public/
+src/
+src/pages
+src/styles
+
+pages안에
+_app.tsx 파일과 _documnet.tsx 파일은 뭐하는 파일일까???
+_app.tsx : root 컴포넌트의 역활을 한다.  (모든 페이지 컴퍼넌트들의 부모 역활)
+
+APP - PAGE 랜더링
+** 만약 공통 컴포넌트 head나 footer같은 태그는 _app.tsx에 추가하면 전부 공통적으로 적용된다.
+
+
+_document.tsx는
+모든 페이지에 공통적으로 적용되어야하는 html 태그를 적용하는 파일이다.
+meta, charset, font 등등의 페이지 전체에 적용하는 html 태그를 적용
+
+
+next.config.mjs 파일은 ???
+reactStrictMode: false  
+
+
+
+## 페이지 라우팅 설정
+- Pages 폴더를 이용한 라우팅 방법 / 쿼리 스트링 / userRouter Hook 사용
+- URL 파라미터
+
+동적 URL 파라미터 값  ex) 1,2,3,~~
+pages폴더안에  book폴더 > [id].tsx 파일 생성  (동적 경로 대응 페이지)
+ex)  localhost:3000/book/1     book/2 ~ book/3 ~~ 이런식
+
+##################
+[...id].tsx  파일명은
+-> catch all segment 라고 부른다.
+모든 구간에 대응 (/book이런식으로의 페이지는 대응 안됨)
+URL 형식은 localhost:3000/book/245/344/542 이런식으로 많은 값들을 전달할때 사용한다.
+##################
+[[...id]].tsx 파일명은
+->  /book 으로만 끝나도 대응이 가능한 페이지가 된다.
+-> Optional Catch all segment 라고 부른다.  어떤 경로든 모두 대응하는 페이지
+##################
+
+
+## 에러 페이지는
+404.tsx 이런식으로 만들어 주면된다.
+그럼 에러 발생시 해당 페이지로 랜더링된다.
+
+정리하면
+[id].tsx  [...id].tsx   [[...id]].tsx  파일명 방식으로 사용
+404.tsx 사용
+
+
+## 네이게이팅
+<Link> 태그     ex) <Link href={"/"}>index</Link>  이런식으로 사용
+사용하는 파일 위치 : _app.tsx 에 <header>태그안에 사용함  
+효과 : 클릭하면 해당 href 위치로 이동한다.
+
+
+useRouter() 메소드들 보기
+replace, back, push 등등...

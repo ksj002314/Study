@@ -1,0 +1,28 @@
+1. GitLab 가입하고 Group 생성 및 프로젝트 생성
+2. CI/CD 구성
+    2-1. 서버에 gitlab runner 설치하기  
+        *설치 링크 https://docs.gitlab.com/runner/install/linux-repository.html
+    
+
+    2-2. GitLab  CI/CD에서  RUNNER 만들고  (tag는 체크박스 클릭하면 tag명 입력안해도 생성됨)
+
+
+        $ gitlab-runner run   // 실행 명령어
+
+
+        
+    2-3. 적용된 gitlab-runner를 부팅시에도 자동화 되도록 해주자.
+
+        $ su -   // 전환 하고 작업
+        ExecStart 부분 경로를 수정해줘야한다.
+        경로들을 /home/ubuntu 로 바꿔준다   --user는 ubuntu로
+
+        $ eixt  // 위 내용 수정하고 ubuntu 계정으로 이동 하고
+        $ cd ~
+        $ ls -al .bash_logout  // 해당 파일 찾고
+        $ vim .bash_logout     // 전부 주석처리해준다.
+        $ sudo systemctl restart gitlab-runner  // 설정한거 적용하기 위한 재실행
+        $ sudo systemctl daemon-reload          // 리로드
+        $ sudo systemctl restart gitlab-runner
+        $ sudo systemctl enable gitlab-runner   // 자동실행 하면 끝
+        
